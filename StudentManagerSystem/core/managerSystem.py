@@ -91,4 +91,10 @@ class ManagerStudent():
 
 
     def stu_save(self):
-        pass
+        f = open('../db/userinfo','w')
+        list_new = []
+        for i in self.student_list:
+            list_new.append(i.__dict__)
+
+        f.write(str(list_new))
+
