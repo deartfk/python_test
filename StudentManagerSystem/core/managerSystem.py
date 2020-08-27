@@ -86,7 +86,9 @@ class ManagerStudent():
 
 
     def stu_show(self):
-        pass
+        for i in self.student_list:
+            print(i)
+
 
     def stu_save(self):
         pass
