@@ -77,7 +77,13 @@ class ManagerStudent():
                 print('查无此人')
 
     def stu_search(self):
-        pass
+        find = input('请输入要查找的学生姓名：')
+        for i in self.student_list:
+            if i.name == find:
+                print(i)
+            else:
+                print('查无此人')
+
 
     def stu_show(self):
         pass
