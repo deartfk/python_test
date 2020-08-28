@@ -1,12 +1,22 @@
 from core import student
 
+'''
+定义了系统管理类
 
+有增删查改读取等函数
+
+'''
 class ManagerStudent():
-
     def __init__(self):
         self.student_list = []
 
+
     def run(self):
+        '''
+        入口程序
+        1，加载已有学生信息并展示
+        2，展示菜单供用户选择操作
+        '''
         self.stu_load()
         while True:
             self.show_menu()
@@ -46,10 +56,15 @@ class ManagerStudent():
             age = userinfo_list[i]['age']
             tel = userinfo_list[i]['tel']
             print(f'姓名：{name}，年龄：{age}，手机：{tel}')
+        f.close()
 
 
 
     def stu_add(self):
+        '''
+        添加学生信息
+        :return:
+        '''
         name = input('请输入姓名:')
         age = input('请输入年龄:')
         tel = input('请输入手机:')
@@ -62,6 +77,10 @@ class ManagerStudent():
         print(self.student_list)
 
     def stu_del(self):
+        '''
+        删除学生信息
+        :return:
+        '''
         studel = input('请输入要删除的学生姓名：')
         for i in self.student_list:
             if i.name == studel:
@@ -70,6 +89,10 @@ class ManagerStudent():
                 print('查无此人')
 
     def stu_update(self):
+        '''
+        更新学生信息
+        :return:
+        '''
         stuupd = input('请输入要修改的学生姓名：')
         for i in self.student_list:
             if i.name == stuupd:
@@ -84,6 +107,10 @@ class ManagerStudent():
                 print('查无此人')
 
     def stu_search(self):
+        '''
+        查找学生信息
+        :return:
+        '''
         find = input('请输入要查找的学生姓名：')
         for i in self.student_list:
             if i.name == find:
@@ -92,10 +119,18 @@ class ManagerStudent():
                 print('查无此人')
 
     def stu_show(self):
+        '''
+        展示学生信息
+        :return:
+        '''
         for i in self.student_list:
             print(i)
 
     def stu_save(self):
+        '''
+        保存学生信息
+        :return:
+        '''
         f = open('../db/userinfo', 'w')
         list_new = []
         for i in self.student_list:
