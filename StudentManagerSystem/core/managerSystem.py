@@ -37,9 +37,17 @@ class ManagerStudent():
         print('6,保存学生')
         print('7,退出系统')
 
-
     def stu_load(self):
-        pass
+        f = open('../db/userinfo','r')
+        data = f.read()
+        userinfo_list = eval(data)
+        for i in range(len(userinfo_list)):
+            name = userinfo_list[i]['name']
+            age = userinfo_list[i]['age']
+            tel = userinfo_list[i]['tel']
+            print(f'姓名：{name}，年龄：{age}，手机：{tel}')
+
+
 
     def stu_add(self):
         name = input('请输入姓名:')
@@ -60,7 +68,6 @@ class ManagerStudent():
                 self.student_list.remove(i)
             else:
                 print('查无此人')
-
 
     def stu_update(self):
         stuupd = input('请输入要修改的学生姓名：')
@@ -84,17 +91,14 @@ class ManagerStudent():
             else:
                 print('查无此人')
 
-
     def stu_show(self):
         for i in self.student_list:
             print(i)
 
-
     def stu_save(self):
-        f = open('../db/userinfo','w')
+        f = open('../db/userinfo', 'w')
         list_new = []
         for i in self.student_list:
             list_new.append(i.__dict__)
 
         f.write(str(list_new))
-
