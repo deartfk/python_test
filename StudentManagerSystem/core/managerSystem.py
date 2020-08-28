@@ -107,10 +107,10 @@ class ManagerStudent():
                 print('查无此人')
 
     def stu_search(self):
-        '''
+        """
         查找学生信息
         :return:
-        '''
+        """
         find = input('请输入要查找的学生姓名：')
         for i in self.student_list:
             if i.name == find:
