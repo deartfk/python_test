@@ -5,3 +5,14 @@
 # 语法:
 # import 模块名
 # from .. import ..
+
+
+import hashlib
+
+username = 'deartfk'
+passwd = '123456'
+md = hashlib.md5('deartfk'.encode('utf8'))  # 可以改成动态加盐
+md.update(passwd.encode('utf-8'))
+print(md.hexdigest())
+
+import logging
